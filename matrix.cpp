@@ -2,6 +2,7 @@
 #include <cmath>
 #include <vector>
 #include <iostream>
+#include<time.h>
 
 //fill Vector with values
 void fillVector(std::vector<std::vector<int>>& refVec, int input){
@@ -33,6 +34,7 @@ void printVector(std::vector<std::vector<int>>& refVec){
 
 int main()
 {
+    int t = clock();
     std::vector<std::vector<int>> theVector(500, std::vector<int>(500)); //create vector named theVector
     int input;
     std::cout << "Please enter any integer \n";
@@ -41,6 +43,7 @@ int main()
     
     fillVector(theVector, input);
     printVector(theVector);
+    std::cout << "\nRuntime: " << clock()-t << " milliseconds";
     
 
     return 0;
