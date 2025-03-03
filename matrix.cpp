@@ -31,17 +31,47 @@ void printVector(std::vector<std::vector<int>>& refVec){
         std::cout << "\n";
     }
 }
-
+//scramble the Vector
+void scrambleVector(std::vector<std::vector<int>>& refVec, int input){
+    int scrambleMax, temp, pos1, pos2, pos3, pos4;
+    scrambleMax = refVec.size() * refVec.size();
+    srand(time(NULL));
+    pos1 = rand()%refVec.size();
+    srand(input);
+    pos2 = rand()%refVec.size();
+    srand(time(NULL));
+    pos3 = rand()%refVec.size();
+    srand(input+1);
+    pos4 = rand()%refVec.size();
+    
+    for(int k = 0; k < scrambleMax; k++){
+        //get 2 random spots in array
+        srand(time(NULL));
+        pos1 = rand()%refVec.size();
+        srand(input);
+        pos2 = rand()%refVec.size();
+        srand(time(NULL));
+        pos3 = rand()%refVec.size();
+        srand(input+1);
+        pos4 = rand()%refVec.size();
+        
+        //swap
+        temp = refVec[pos1][pos2];
+        refVec[pos1][pos2] = refVec[pos3][pos4];
+        refVec[pos3][pos4] = temp;
+    }
+}
 int main()
 {
     int t = clock();
-    std::vector<std::vector<int>> theVector(500, std::vector<int>(500)); //create vector named theVector
+    std::vector<std::vector<int>> theVector(100, std::vector<int>(100)); //create vector named theVector
     int input;
     std::cout << "Please enter any integer \n";
     std::cin >> input;
     std::cout << "\n";
     
     fillVector(theVector, input);
+    scrambleVector(theVector, input);
     printVector(theVector);
     std::cout << "\nRuntime: " << clock()-t << " milliseconds";
     
