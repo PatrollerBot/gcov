@@ -64,7 +64,7 @@ void scrambleVector(std::vector<std::vector<int>>& refVec, int input){
 int main()
 {
     int t = clock();
-    std::vector<std::vector<int>> theVector(100, std::vector<int>(100)); //create vector named theVector
+    std::vector<std::vector<int>> theVector(250, std::vector<int>(250)); //create vector named theVector
     int input;
     std::cout << "Please enter any integer \n";
     std::cin >> input;
